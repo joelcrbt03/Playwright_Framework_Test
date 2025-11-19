@@ -1,0 +1,14 @@
+{
+  "name": "playwright-ts-framework",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test",
+    "test:allure": "playwright test --reporter=line,allure-playwright",
+    "allure:serve": "allure serve allure-results"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.0",
+    "allure-playwright": "^2.14.0",
+    "typescript": "^5.4.0"
+  }
+}
