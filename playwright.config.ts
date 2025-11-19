@@ -1,17 +1,17 @@
-import { defineConfig } from '@playwright/test';
-import configData from './config.json';
+import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
   retries: 1,
+  use: {
+    headless: process.env.CI ? true : false, // true in GitHub Actions, false locally
+    viewport: { width: 1280, height: 720 },
+    ignoreHTTPSErrors: true,
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+  },
   reporter: [
-    ['line'],
+    ['list'],
     ['allure-playwright']
   ],
-  use: {
-    headless: false,
-    baseURL: configData.baseURL,
-    screenshot: 'only-on-failure',
-    trace: 'retain-on-failure'
-  }
 });
